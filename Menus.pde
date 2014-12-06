@@ -1,8 +1,9 @@
+boolean showmenu = true;
 
 class Menu
 {
   PFont menufont;
-  boolean showmenu = true;
+
   PImage menuimage, gameoverimage;
 
 
@@ -13,7 +14,7 @@ void mainmenu()
   image (menuimage,0,0);
   
   fill(255,255,0);
-  rect( width / 2, height / 2 - 100, 300, 100 );
+  rect( width / 2, height / 2 - 100, 200, 100 );
   
   menufont = createFont("Arial",30,true); 
   textFont(menufont);       
