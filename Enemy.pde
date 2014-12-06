@@ -20,7 +20,7 @@ class Enemy extends GameObject
     float dist = position.x - p.position.x;
     if (dist <= awareDistance && dist > 0){
       position.x -= speed;
-    } else if(dist >= awareDistance && dist < 0) {
+    } else if(dist >= -awareDistance && dist < 0) {
       position.x += speed;
     }
   }
