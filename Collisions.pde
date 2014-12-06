@@ -1,9 +1,0 @@
-class Collisions
-{
-  
-  Collisions()
-  {
-    
-  }
-  
-}
