@@ -52,9 +52,9 @@ class Player extends GameObject
     if(inAir)  
     {  
       setY(getY()+jumpVelocity);
-      if(getY() >= ){
+      if(getY() >= 500){
         inAir = false;
-        jumpVelocity = 2;
+        jumpVelocity = -10;
       }
       jumpVelocity += 0.4;
     } 
