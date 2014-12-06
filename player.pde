@@ -29,6 +29,7 @@ class Player extends GameObject
     w = 40;
   }
   
+  @Override
   void display()
   {
    // make rect invisible
@@ -37,13 +38,10 @@ class Player extends GameObject
    // player position
    rect(getX(), getY(), w, h); 
    // display sprite
-   catplayer.display(getX()-catplayer.getWidth()+40, getY()); 
-
-   
-  
-  
+   catplayer.display(getX()-catplayer.getWidth()+40, getY());
   }  
   
+  @Override
   void move(){
     ellapsed += timeDelta;
     // The variable "key" always contains the value 

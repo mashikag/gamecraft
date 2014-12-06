@@ -1,11 +1,12 @@
 // create sprite
 Sprites catplayer;
-
+final int HEIGHT = 600;
+final int WIDTH = 800;
 
 void setup()
 {
   // resize screen
-  size(800,600);
+  size(WIDTH,HEIGHT);
   
   // create new player sprite
   catplayer = new Sprites("cat",1); 
@@ -31,6 +32,9 @@ void draw()
   {
     objects.get(i).move();
     objects.get(i).display();
+    if(objects.get(i).getX() > WIDTH){
+      objects.remove(i);
+    }
   }
   
 }
