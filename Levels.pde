@@ -1,5 +1,8 @@
+
 class Levels
 {
+  
+// menus = new Menu();
  
  PImage bg;
  int level;
@@ -11,6 +14,7 @@ class Levels
       switch (key){
            case 'f':
            level = 1;
+           showmenu = false;
            break;
            case 'g':
            level = 0;

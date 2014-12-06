@@ -54,7 +54,10 @@ class Enemy extends GameObject
   
   @Override
   void display(){
-    fill(255);
+    noFill();
+    noStroke();
+    //fill(255);
     rect(getX(), getY(), 55, 55);
+    enemywalking.display(getX()-enemywalking.getWidth()+40, getY());
   }
 }
