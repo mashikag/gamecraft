@@ -5,6 +5,7 @@ class Player extends GameObject
   float h = 50;
   float speed = 5;
   float timeDelta = 1.0f / 60.0f;
+  boolean faceRight;
   
   boolean shoot = false;
   boolean altshoot = false;
@@ -15,6 +16,7 @@ class Player extends GameObject
   
   Player(float  x, float y, float w, float h)
   {
+    faceRight = true;
     setX(x);
     setY(y);
     this.w = w;
@@ -52,16 +54,17 @@ class Player extends GameObject
       {
         case 'a':
           setX(getX()-speed);
+          faceRight = false;
           break;
         case 'd':
-
+          faceRight = true;
           setX(getX()+speed);
           break;
        case ' ':
           if (ellapsed > toPass)
           {
             float x = getX();float y = getY();
-            objects.add(new Bullet(x, y, 20, 20));
+            objects.add(new Bullet(x, y, 10, 10));
             ellapsed = 0.0f;
           }
           break;

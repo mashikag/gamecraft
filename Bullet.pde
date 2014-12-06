@@ -18,7 +18,7 @@ class Bullet extends GameObject
   {
     //dx = cos(theta);
     //dy = sin(theta);
-    angle += dAngle % PI;
+    angle -= dAngle % PI;
     setX(getX() + speed);
   }
   
@@ -30,10 +30,12 @@ class Bullet extends GameObject
     rotate(angle);
     ellipseMode(RADIUS);
     fill(204, 102, 0);
-    ellipse(-width/2, 0, 10, 10);
-    ellipse( width/2, 0, 10, 10);
-    ellipse( 0, -height/2, 10, 10);
-    ellipse( 0, height/2, 10, 10);
+    ellipse(-width, 0, width, height);
+    ellipse( width, 0, width, height);
+    ellipse( 0, -height, width, height);
+    ellipse( 0, height, width, height);
+    fill(255, 55, 0);
+    ellipse(0, 0, width, height);
     //rotate(theta);
     popMatrix();
   }
