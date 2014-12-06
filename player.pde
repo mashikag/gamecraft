@@ -3,12 +3,11 @@ class Player extends GameObject
   
   float w = 50;
   float h = 50;
- 
   float speed = 5;
-  
-  boolean jump,crouch,shoot,altshoot;
-  
   float timeDelta = 1.0f / 60.0f;
+  
+  boolean shoot = false;
+  boolean altshoot = false;
   
   float fireRate = 10.0f;
   float ellapsed = 0.0f;
@@ -46,48 +45,40 @@ class Player extends GameObject
   }  
   
   void move(){
-    
-  ellapsed += timeDelta;
-  // The variable "key" always contains the value 
-  // of the most recent key pressed.  
+    ellapsed += timeDelta;
+    // The variable "key" always contains the value 
+    // of the most recent key pressed.  
     if(keyPressed)
-  {
-    switch (key)
     {
-     case 'w':
-     jump=true;
-      break;
-        case 's':
-     crouch =true;
-      break;
-     case 'a':
-      direction = -1;
-      position.x-=speed;
-      break;
-     case 'd':
-      direction = 1;
-      position.x+=speed;
-      break;
-      
-     case ' ':
-    if (ellapsed > toPass)
+      switch (key)
       {
-      Bullet bullet = new Bullet();
-      bullet.position = position.get();
-      objects.add(bullet);
-      ellapsed = 0.0f;
-      }
-     break;
-     
+        case 'a':
+          direction = -1;
+          position.x-=speed;
+          break;
+        case 'd':
+          direction = 1;
+          position.x+=speed;
+          break;
+       case ' ':
+          if (ellapsed > toPass)
+          {
+            
+          Bullet bullet = new Bullet();
+          bullet.position = position.get();
+          objects.add(new Bullet(position.x, position.y));
+          ellapsed = 0.0f;
+          }
+          break;
+        }
     }
-  }
-   if (mousePressed && (mouseButton == LEFT)) {
+    if (mousePressed && (mouseButton == LEFT)) {
       shoot=true;
-     
     }
-    else{shoot=false;
+    else{
+      shoot=false;
     }
-   if (mousePressed && (mouseButton == RIGHT)) {
+    if (mousePressed && (mouseButton == RIGHT)) {
       altshoot=true;
     }
     else{

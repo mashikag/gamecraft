@@ -16,10 +16,7 @@ class GameObject
 
   void move()
   {
-    float dx = (mouseX-position.x);
-    float dy = (mouseY-position.y);
-    float dydx = (dx / dy);
-    float theta=atan(dydx);
+    
   }
   
   void display()
