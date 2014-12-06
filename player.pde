@@ -66,7 +66,7 @@ class Player extends GameObject
             
           Bullet bullet = new Bullet();
           bullet.position = position.get();
-          objects.add(new Bullet(position.x, position.y));
+        //  objects.add(new Bullet(position.x, position.y));
           ellapsed = 0.0f;
           }
           break;
