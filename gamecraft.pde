@@ -1,24 +1,19 @@
 // create sprite
 Sprites playerwalking, playeridle;
 
-// import minim audio player
-import ddf.minim.*;
-
-// create classes
-Minim minim;
-
 Levels levels;
 Menu menu;
 
 final int HEIGHT = 600;
 final int WIDTH = 800;
-
+PImage bg;
 
 void setup()
 {
+
   // resize screen
   size(WIDTH,HEIGHT);
-  
+   bg = loadImage("bg1.jpg");
   levels = new Levels();
   menu = new Menu();
   //  gameovermenu = new Menu();
@@ -40,9 +35,9 @@ void draw()
 {
  
   // add background colour
-    background(0, 0, 0);
+    background(bg);
     print(levels.level);
-    levels.backgrounds();
+    //levels.backgrounds();
     levels.startgame();
    
   //  menu.mainmenu();

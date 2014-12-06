@@ -1,7 +1,7 @@
 class Levels
 {
  
- PImage bg1;
+ PImage bg;
  int level;
  
  void startgame()
@@ -22,8 +22,8 @@ class Levels
  void backgrounds()
  {
    if(level == 1){
-   bg1 = loadImage("bg1.jpg");
-   image (bg1,0,0);
+   bg = loadImage("bg1.jpg");
+ 
    }
    if(level==0){
    clear();
