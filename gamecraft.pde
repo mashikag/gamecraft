@@ -12,7 +12,7 @@ void setup()
   
   // add objects to ArrayList
   objects.add(new Player(200, 500)); 
-  objects.add(new Enemy(500, 500, 55, 55, objects.get(0)));
+  objects.add(new Enemy(500, 500, 55, 55, 100, objects.get(0)));
   
 }
 
