@@ -4,7 +4,9 @@ class Bullet extends GameObject
   float speed = 5;
   float dAngle = PI/15;
   float angle;
-  
+  float col1=(float)Math.random()*254;
+  float col2=(float)Math.random()*254;
+  float col3=(float)Math.random()*254;
   Bullet(float x, float y, float width, float height)
   {
     posx=x;
@@ -43,12 +45,30 @@ class Bullet extends GameObject
     translate(getX(), getY());
     rotate(angle);
     ellipseMode(RADIUS);
-    fill(204, 102, 0);
+    col1=(float)Math.random()*254;
+    col2=(float)Math.random()*254;
+    col3=(float)Math.random()*254;
+    fill(col1, col2, col3);
     ellipse(-width, 0, width, height);
+    col1=(float)Math.random()*254;
+    col2=(float)Math.random()*254;
+    col3=(float)Math.random()*254;
+    fill(col1, col2, col3);
     ellipse( width, 0, width, height);
+    col1=(float)Math.random()*254;
+    col2=(float)Math.random()*254;
+    col3=(float)Math.random()*254;
+    fill(col1, col2, col3);
     ellipse( 0, -height, width, height);
+    col1=(float)Math.random()*254;
+    col2=(float)Math.random()*254;
+    col3=(float)Math.random()*254;
+    fill(col1, col2, col3);
     ellipse( 0, height, width, height);
-    fill(255, 0, 80);
+    col1=(float)Math.random()*254;
+    col2=(float)Math.random()*254;
+    col3=(float)Math.random()*254;
+    fill(col3, col1, col2);
     ellipse(0, 0, width, height);
     popMatrix();
   }
