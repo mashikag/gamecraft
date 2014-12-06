@@ -14,8 +14,6 @@ class Player extends GameObject
   float fireRate = 10.0f;
   float ellapsed = 0.0f;
   float toPass = 15.0f / fireRate;
-  float direction;
-  boolean idle = true;
   
   Player(float  x, float y, float w, float h)
   {
@@ -45,40 +43,9 @@ class Player extends GameObject
    noFill();
    // player position
    rect(getX(), getY(), w, h); 
-   // player animation
-   if(idle == true)
-   {
+   // display sprite
    playeridle.display(getX()-playeridle.getWidth()+40, getY());
-   }
-   
-  translate(getX(), getY());
-  scale(direction, 1);
-  imageMode(CENTER);
-   pushMatrix();
-  
-    if(keyPressed)
-    {
-      switch (key)
-      {
-      
-        case 'a':
-    
-          // player animation
-           playerwalking.display(getX()-playerwalking.getWidth()+40, getY());
-           idle = false;
-           
-          break;
-        case 'd':
-         
-         // player animation
-          playerwalking.display(getX()-playerwalking.getWidth()+40, getY());
-           idle = false;  
- 
-      }
-      idle = true;  
   }  
-   popMatrix();  
-}
   
   @Override
   void move(){
@@ -106,32 +73,22 @@ class Player extends GameObject
         case 'a':
           setX(getX()-speed);
           faceRight = false;
-          // player animation
            playerwalking.display(getX()-playerwalking.getWidth()+40, getY());
-           
           break;
         case 'd':
-         
+         playerwalking.display(getX()-playerwalking.getWidth()+40, getY());
           faceRight = true;
           setX(getX()+speed);
-         // player animation
-          playerwalking.display(getX()-playerwalking.getWidth()+40, getY());
-          
           break;
        case ' ':
-          if (ellapsed > toPass)
-          {
-            ellapsed = 0.0f;
-            float x = getX();float y = getY();
-            objects.add(new Bullet(x, y, 10, 10));
-            ellapsed = 0.0f;
-
-          }
+    
           break;
         }
     }
     if (mousePressed && (mouseButton == LEFT)) {
       shoot=true;
+      float x = getX();float y = getY();
+      objects.add(new Bullet(x, y, 10, 10));
     }
     else{
       shoot=false;
