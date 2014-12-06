@@ -83,13 +83,7 @@ class Player extends GameObject
        case ' ':
           if (ellapsed > toPass)
           {
-
-            
-         // Bullet bullet = new Bullet();
-         // bullet.position = position.get();
-        //  objects.add(new Bullet(position.x, position.y));
-          ellapsed = 0.0f;
-
+            ellapsed = 0.0f;
             float x = getX();float y = getY();
             objects.add(new Bullet(x, y, 10, 10));
             ellapsed = 0.0f;
