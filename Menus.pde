@@ -1,4 +1,4 @@
-boolean showmenu = true;
+boolean showmenu = false;
 
 class Menu
 {
@@ -9,7 +9,7 @@ class Menu
 
 void mainmenu()
 {
- 
+  audio = new Audio(new Minim(this));
   menuimage =  loadImage("menu.png");
   image (menuimage,0,0);
   
@@ -20,9 +20,15 @@ void mainmenu()
   textFont(menufont);       
   textAlign(CENTER);
   
-  text("unititled", width / 2 , height / 2 - 100 );
- 
+ text("unititled", width / 2 , height / 2 - 100 );
   
+  if(mousePressed && (mouseButton == LEFT)){
+    if(mouseX>=300 && mouseX<=500){
+      if(mouseY>=200 && mouseY<=300){
+        showmenu=false;
+      }
+    }
+  }
 }
 
 void gameovermenu()

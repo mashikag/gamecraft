@@ -4,13 +4,21 @@ Sprites playerwalking, playeridle, enemywalking;
 Levels levels;
 Menu menu;
 
+// import minim audio player
+import ddf.minim.*;
+
+// create classes
+Minim minim;
+AudioPlayer sou;
+Audio audio;
+
 final int HEIGHT = 600;
 final int WIDTH = 800;
 PImage bg;
 
 void setup()
 {
-
+audio = new Audio(new Minim(this));
   // resize screen
   size(WIDTH,HEIGHT);
    bg = loadImage("bg1.jpg");
@@ -26,8 +34,9 @@ void setup()
   // add objects to ArrayList
   objects.add(new Player(200, 500)); 
   objects.add(new Enemy(500, 500, 55, 55, 100, objects.get(0)));
-  
-//showmenu = false;
+  // update music
+   audio.audioMusic();  
+   showmenu = true;
 }
 
 ArrayList<GameObject> objects = new ArrayList<GameObject>();
