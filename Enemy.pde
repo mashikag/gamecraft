@@ -23,6 +23,7 @@ class Enemy extends GameObject
     hp -= damage;
   }
   
+  @Override
   void move(){
     float dist = getX() - p.getX();
     if (dist <= awareDistance && dist > 0){
@@ -51,6 +52,7 @@ class Enemy extends GameObject
     this.awareDistance = awareDistance;
   }
   
+  @Override
   void display(){
     fill(255);
     rect(getX(), getY(), 55, 55);

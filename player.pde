@@ -5,6 +5,7 @@ class Player extends GameObject
   float h = 50;
   float speed = 5;
   float timeDelta = 1.0f / 60.0f;
+  boolean faceRight;
   
   boolean shoot = false;
   boolean altshoot = false;
@@ -15,6 +16,7 @@ class Player extends GameObject
   
   Player(float  x, float y, float w, float h)
   {
+    faceRight = true;
     setX(x);
     setY(y);
     this.w = w;
@@ -29,6 +31,7 @@ class Player extends GameObject
     w = 40;
   }
   
+  @Override
   void display()
   {
    // make rect invisible
@@ -37,13 +40,10 @@ class Player extends GameObject
    // player position
    rect(getX(), getY(), w, h); 
    // display sprite
-   catplayer.display(getX()-catplayer.getWidth()+40, getY()); 
-
-   
-  
-  
+   playeridle.display(getX()-playeridle.getWidth()+40, getY());
   }  
   
+  @Override
   void move(){
     ellapsed += timeDelta;
     // The variable "key" always contains the value 
@@ -54,9 +54,12 @@ class Player extends GameObject
       {
         case 'a':
           setX(getX()-speed);
+          faceRight = false;
+           playerwalking.display(getX()-playerwalking.getWidth()+40, getY());
           break;
         case 'd':
-
+         playerwalking.display(getX()-playerwalking.getWidth()+40, getY());
+          faceRight = true;
           setX(getX()+speed);
           break;
        case ' ':
@@ -70,7 +73,7 @@ class Player extends GameObject
           ellapsed = 0.0f;
 
             float x = getX();float y = getY();
-            objects.add(new Bullet(x, y, 20, 20));
+            objects.add(new Bullet(x, y, 10, 10));
             ellapsed = 0.0f;
 
           }

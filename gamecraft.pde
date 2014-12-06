@@ -1,19 +1,25 @@
 // create sprite
-Sprites catplayer;
+Sprites playerwalking, playeridle;
+
 Levels levels;
 Menu menu;
+
+final int HEIGHT = 600;
+final int WIDTH = 800;
+
 
 void setup()
 {
   // resize screen
-  size(800,600);
+  size(WIDTH,HEIGHT);
   
   levels = new Levels();
   menu = new Menu();
-//  gameovermenu = new Menu();
-//  levels.startgame();
+  //  gameovermenu = new Menu();
+  //  levels.startgame();
   // create new player sprite
-  catplayer = new Sprites("cat",1); 
+  playerwalking = new Sprites("catwalking",5); 
+  playeridle = new Sprites("catidle",1);
     
   // add objects to ArrayList
   objects.add(new Player(200, 500)); 
@@ -39,6 +45,9 @@ void draw()
   {
     objects.get(i).move();
     objects.get(i).display();
+    if(objects.get(i).getX() > WIDTH){
+      objects.remove(i);
+    }
   }
  
 }
