@@ -16,7 +16,7 @@ void setup()
   levels = new Levels();
   menu = new Menu();
   //  gameovermenu = new Menu();
-  //  levels.startgame();
+  // levels.startgame();
   // create new player sprite
   playerwalking = new Sprites("catwalking",5); 
   playeridle = new Sprites("catidle",1);
@@ -24,6 +24,7 @@ void setup()
   // add objects to ArrayList
   objects.add(new Player(200, 500)); 
   objects.add(new Enemy(500, 500, 55, 55, 100, objects.get(0)));
+  
 
 }
 
@@ -36,6 +37,7 @@ void draw()
     background(0, 0, 0);
     print(levels.level);
     levels.backgrounds();
+    levels.startgame();
    
   //  menu.mainmenu();
  

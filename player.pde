@@ -5,9 +5,10 @@ class Player extends GameObject
   float h = 50;
   float speed = 5;
   float timeDelta = 1.0f / 60.0f;
-  float gravity = 0.5f;
+  float jumpVelocity = -10;
   boolean faceRight;
   boolean inAir;
+  boolean falling;
   boolean shoot;
   
   float fireRate = 10.0f;
@@ -19,6 +20,7 @@ class Player extends GameObject
   Player(float  x, float y, float w, float h)
   {
     inAir = false;
+    falling = false;
     shoot = false;
     faceRight = true;
     setX(x);
@@ -80,10 +82,15 @@ class Player extends GameObject
   
   @Override
   void move(){
-    if(inAir){
-      setY(getY() - gravity);
-    }
-    ellapsed += timeDelta;
+    if(inAir)  
+    {  
+      setY(getY()+jumpVelocity);
+      if(getY() >= ){
+        inAir = false;
+        jumpVelocity = 2;
+      }
+      jumpVelocity += 0.4;
+    } 
     // The variable "key" always contains the value 
     // of the most recent key pressed.  
     if(keyPressed)
@@ -93,6 +100,7 @@ class Player extends GameObject
         case 'w':
           if(!inAir){
             inAir = true;
+            
           }
           break;
         case 'a':
