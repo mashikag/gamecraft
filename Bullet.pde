@@ -48,7 +48,7 @@ class Bullet extends GameObject
     ellipse( width, 0, width, height);
     ellipse( 0, -height, width, height);
     ellipse( 0, height, width, height);
-    fill(255, 55, 0);
+    fill(255, 0, 80);
     ellipse(0, 0, width, height);
     popMatrix();
   }
