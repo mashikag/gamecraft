@@ -12,8 +12,8 @@ class Enemy extends GameObject
   
   Enemy(float x, float y, float w, float h, int hp, GameObject p)
   {
-    position.x = x;
-    position.y = y;
+    setX(x);
+    setY(y);
     this.w = w;
     this.h = h;
     this.p = p;
@@ -24,13 +24,13 @@ class Enemy extends GameObject
   }
   
   void move(){
-    float dist = position.x - p.position.x;
+    float dist = getX() - p.getX();
     if (dist <= awareDistance && dist > 0){
       changeSpeed();
-      position.x -= speed;
+      setX(getX() - speed);
     } else if(dist >= -awareDistance && dist < 0) {
       changeSpeed();
-      position.x += speed;
+      setX(getX() + speed);
     }
   }
   
@@ -53,6 +53,6 @@ class Enemy extends GameObject
   
   void display(){
     fill(255);
-    rect(position.x, position.y, 55, 55);
+    rect(getX(), getY(), 55, 55);
   }
 }

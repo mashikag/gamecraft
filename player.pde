@@ -15,16 +15,16 @@ class Player extends GameObject
   
   Player(float  x, float y, float w, float h)
   {
-    position.x = x;
-    position.y = y;
+    setX(x);
+    setY(y);
     this.w = w;
     this.h = h;
   }
   
    Player(float x, float y)
   {
-    position.x = x;
-    position.y = y;
+    setX(x);
+    setY(y);
     h = 40;
     w = 40;
   }
@@ -35,9 +35,9 @@ class Player extends GameObject
    noStroke();
    noFill();
    // player position
-   rect(position.x, position.y, w, h); 
+   rect(getX(), getY(), w, h); 
    // display sprite
-   catplayer.display(position.x-catplayer.getWidth()+40, position.y); 
+   catplayer.display(getX()-catplayer.getWidth()+40, getY()); 
 
    
   
@@ -53,21 +53,26 @@ class Player extends GameObject
       switch (key)
       {
         case 'a':
-          direction = -1;
-          position.x-=speed;
+          setX(getX()-speed);
           break;
         case 'd':
-          direction = 1;
-          position.x+=speed;
+
+          setX(getX()+speed);
           break;
        case ' ':
           if (ellapsed > toPass)
           {
+
             
-          Bullet bullet = new Bullet();
-          bullet.position = position.get();
+         // Bullet bullet = new Bullet();
+         // bullet.position = position.get();
         //  objects.add(new Bullet(position.x, position.y));
           ellapsed = 0.0f;
+
+            float x = getX();float y = getY();
+            objects.add(new Bullet(x, y, 20, 20));
+            ellapsed = 0.0f;
+
           }
           break;
         }

@@ -1,27 +1,28 @@
-class GameObject
+abstract class GameObject
 {
-  PVector velocity = new PVector(0, 0);
-  PVector position = new PVector(width / 2, height / 2);
-  float theta=0;
- 
-  float jumpSpeed, walkSpeed;
-  float left, right, up, down;
-  float direction;
+  float xPos = 0;
+  float yPos = 0;
   
   GameObject()
   {
-    position.x = width / 2;
-    position.y = height / 2;
+    xPos = 0; yPos = 0;
   }
 
-  void move()
-  {
-    
-  }
+  abstract void move();
   
-  void display()
-  {
-    println("display getting called");
-  } 
+  abstract void display();
+  
+  public float getX(){
+    return xPos;
+  }
+  public float getY(){
+    return yPos;
+  }
+  public void setX(float x){
+    this.xPos = x;
+  }
+  public void setY(float y){
+    this.yPos = y;
+  }
   
 }

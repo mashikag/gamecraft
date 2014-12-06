@@ -1,11 +1,13 @@
 class Bullet extends GameObject
 {
+  float width, height;
   
-  Bullet()
+  Bullet(float x, float y, float width, float height)
   {
-    position.x = width / 2;  
-    position.y = height / 2;
-    theta = 0;
+    setY(y);
+    setX(x);
+    this.width = width;
+    this.height = height;
   }
    
  
@@ -15,23 +17,24 @@ class Bullet extends GameObject
   
   void move()
   {
-    dx = cos(theta);
-    dy = sin(theta);
-    float speed = 10.0f;
-   position.x += dx * speed;
-    position.y += dy * speed;
+    //dx = cos(theta);
+    //dy = sin(theta);
+    float speed = 2.0f;
+    setX(getX() + dx * speed);
+    setY(getY() + dy * speed);
   }
   
   void display()
   {
     pushMatrix();
-    translate(position.x + 25, position.y + 25);
-    
+    translate(getX(), getY());
+    rotate(PI/6);
+    ellipseMode(RADIUS);
     fill(255);
-    ellipse(-10, 0, 10, 10);
-    ellipse( 10, 0, 10, 10);
-    ellipse( 0, -10, 10, 10);
-    ellipse( 0, 10, 10, 10);
+    ellipse(-width/2, 0, 10, 10);
+    ellipse( width/2, 0, 10, 10);
+    ellipse( 0, -height/2, 10, 10);
+    ellipse( 0, height/2, 10, 10);
     //rotate(theta);
     popMatrix();
   }
