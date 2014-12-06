@@ -48,6 +48,7 @@ void draw()
     if(objects.get(i).getX() > WIDTH){
       objects.remove(i);
     }
+    
   }
  
 }
