@@ -1,11 +1,13 @@
 // create sprite
 Sprites catplayer;
-
+Menu menu;
 
 void setup()
 {
   // resize screen
   size(800,600);
+  
+  menu = new Menu();
   
   // create new player sprite
   catplayer = new Sprites("cat",1); 
@@ -23,6 +25,7 @@ void draw()
   
   // add background colour
   background(0, 0, 0);
+  menu.display();
   
     println(objects.size());
     
