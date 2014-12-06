@@ -1,6 +1,12 @@
 // create sprite
 Sprites playerwalking, playeridle;
 
+// import minim audio player
+import ddf.minim.*;
+
+// create classes
+Minim minim;
+
 Levels levels;
 Menu menu;
 
