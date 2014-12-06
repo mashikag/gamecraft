@@ -5,10 +5,10 @@ class Player extends GameObject
   float h = 50;
   float speed = 5;
   float timeDelta = 1.0f / 60.0f;
+  float gravity = 0.5f;
   boolean faceRight;
-  
-  boolean shoot = false;
-  boolean altshoot = false;
+  boolean inAir;
+  boolean shoot;
   
   float fireRate = 10.0f;
   float ellapsed = 0.0f;
@@ -16,6 +16,8 @@ class Player extends GameObject
   
   Player(float  x, float y, float w, float h)
   {
+    inAir = false;
+    shoot = false;
     faceRight = true;
     setX(x);
     setY(y);
@@ -45,6 +47,9 @@ class Player extends GameObject
   
   @Override
   void move(){
+    if(inAir){
+      setY(getY() - gravity);
+    }
     ellapsed += timeDelta;
     // The variable "key" always contains the value 
     // of the most recent key pressed.  
@@ -52,6 +57,11 @@ class Player extends GameObject
     {
       switch (key)
       {
+        case 'w':
+          if(!inAir){
+            inAir = true;
+          }
+          break;
         case 'a':
           setX(getX()-speed);
           faceRight = false;
@@ -85,12 +95,6 @@ class Player extends GameObject
     }
     else{
       shoot=false;
-    }
-    if (mousePressed && (mouseButton == RIGHT)) {
-      altshoot=true;
-    }
-    else{
-      altshoot=false;
     }
   }
 }
