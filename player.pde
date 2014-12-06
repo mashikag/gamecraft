@@ -13,7 +13,10 @@ class Player extends GameObject
   float fireRate = 10.0f;
   float ellapsed = 0.0f;
   float toPass = 15.0f / fireRate;
+<<<<<<< HEAD
   int idle = 1;
+=======
+>>>>>>> 50c7a9de7ef94088234d971ef3934efb17dfe268
   
   Player(float  x, float y, float w, float h)
   {
@@ -39,6 +42,7 @@ class Player extends GameObject
    // player position
    rect(position.x, position.y, w, h); 
    // display sprite
+<<<<<<< HEAD
    
    if(idle == 1)
    {
@@ -55,6 +59,17 @@ class Player extends GameObject
   void move(){
       
   
+=======
+   catplayer.display(position.x-catplayer.getWidth()+40, position.y); 
+
+   
+  
+  
+  }  
+  
+  void move(){
+    
+>>>>>>> 50c7a9de7ef94088234d971ef3934efb17dfe268
   ellapsed += timeDelta;
   // The variable "key" always contains the value 
   // of the most recent key pressed.  
@@ -69,6 +84,7 @@ class Player extends GameObject
      crouch =true;
       break;
      case 'a':
+<<<<<<< HEAD
        
       idle = 0;
       catleft.display(position.x-catleft.getWidth()+40, position.y); 
@@ -81,6 +97,14 @@ class Player extends GameObject
       catright.display(position.x-catright.getWidth()+40, position.y); 
       position.x+=speed;
       
+=======
+      direction = -1;
+      position.x-=speed;
+      break;
+     case 'd':
+      direction = 1;
+      position.x+=speed;
+>>>>>>> 50c7a9de7ef94088234d971ef3934efb17dfe268
       break;
       
      case ' ':
@@ -92,6 +116,7 @@ class Player extends GameObject
       ellapsed = 0.0f;
       }
      break;
+<<<<<<< HEAD
     
     }
   }
@@ -101,6 +126,11 @@ class Player extends GameObject
     }
     
   
+=======
+     
+    }
+  }
+>>>>>>> 50c7a9de7ef94088234d971ef3934efb17dfe268
    if (mousePressed && (mouseButton == LEFT)) {
       shoot=true;
      

@@ -2,9 +2,17 @@ class GameObject
 {
   PVector velocity = new PVector(0, 0);
   PVector position = new PVector(width / 2, height / 2);
+<<<<<<< HEAD
   PVector nextPosition = new PVector(position.x, position.y);
   float theta=0;
  
+=======
+  float theta=0;
+ 
+  float jumpSpeed, walkSpeed;
+  float left, right, up, down;
+  float direction;
+>>>>>>> 50c7a9de7ef94088234d971ef3934efb17dfe268
   
   GameObject()
   {
